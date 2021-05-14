@@ -1,0 +1,5 @@
+.idea/
+.agollo
+*.log
+**/go.mod
+/go.sum
