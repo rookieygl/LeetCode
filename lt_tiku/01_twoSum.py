@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # 数组元素可重复
 class Solution(object):
     def twoSum(self, nums, target):

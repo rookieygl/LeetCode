@@ -5,11 +5,8 @@ class ListNode(object):
 
 
 class Solution(object):
-    def addTwoNumbers(self, l1, l2):
-        while l1 is not None or l2 is not None:
-
-            l1 = l1.next
-            l2 = l2.next
+    def reverseList(self, head):
+        return
 
 
 if __name__ == '__main__':
