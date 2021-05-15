@@ -6,16 +6,31 @@ class ListNode(object):
 
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
-        addOne = 0
-        node3 = ListNode(0, node12)
+        head, tail = None, None
+        carry = 0
+        while l1 is not None or l2 is not None:
+            if l1 is None:
+                val1 = 0
+            else:
+                val1 = l1.val
 
+            if l1 is None:
+                val2 = 0
+            else:
+                val2 = l2.val
 
-        # while l1 is not None or l2 is not None:
-        #     val1 = l1.val
-        #     val2 = l2.val
-        #     l1 = l1.next
-        #     l2 = l2.next
-
+            count = val1 + val2 + carry
+            if head is None:
+                head = tail = ListNode(count % 10, None)
+            else:
+                tail.next = ListNode(count % 10, None)
+                tail = tail.next
+            carry = int(count / 10)
+            l1 = l1.next
+            l2 = l2.next
+        if carry > 0:
+            tail.next = ListNode(carry, None)
+        return head
 
 
 if __name__ == '__main__':
@@ -25,6 +40,9 @@ if __name__ == '__main__':
 
     node23 = ListNode(4, None)
     node22 = ListNode(6, node23)
-    node2 = ListNode(5, node12)
+    node2 = ListNode(5, node22)
     solution = Solution()
-    solution.addTwoNumbers(node1, node2)
+    numbers = solution.addTwoNumbers(node1, node2)
+    while numbers is not None:
+        print(numbers.val)
+        numbers = numbers.next

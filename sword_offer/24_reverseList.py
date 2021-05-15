@@ -61,5 +61,5 @@ if __name__ == '__main__':
     reverse_head = solution.reverseListRecursion(node, 0)
 
     while reverse_head is not None:
-        # print(reverse_head.val)
+        print(reverse_head.val)
         reverse_head = reverse_head.next
