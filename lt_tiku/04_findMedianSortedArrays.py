@@ -1,3 +1,8 @@
+"""
+寻找两个正序数组的中位数
+"""
+
+
 class Solution(object):
     def findMedianSortedArrays(self, nums1, nums2) -> float:
         def getKthElement(k):

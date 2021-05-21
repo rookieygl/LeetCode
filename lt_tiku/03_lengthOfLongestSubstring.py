@@ -1,3 +1,8 @@
+"""
+无重复字符的最长子串
+"""
+
+
 class Solution(object):
     def lengthOfLongestSubstring(self, s):
         # 哈希集合，记录每个字符是否出现过

@@ -1,3 +1,8 @@
+"""
+翻转链表
+"""
+
+
 class ListNode(object):
     def __init__(self, val=0, next=None):
         self.val = val
@@ -15,9 +20,9 @@ class Solution(object):
         cur = None
         while head is not None:
             tmp = head.next  # 取出下一个node的剩余链表
-            head.next = cur  # 置空下一个node
-            cur = head  # head放到临时node
-            head = tmp  # 继续循环剩余的node
+            head.next = cur  # cur 挂到head的下一个
+            cur = head  # 交换head和next
+            head = tmp  # 遍历剩余链表
         return cur
 
     # 同起点指针翻转
