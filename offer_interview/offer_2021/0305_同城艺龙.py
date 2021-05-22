@@ -1,5 +1,10 @@
+"""
+股票最大收益
+"""
+
+
 class Solution(object):
-    def lengthOfLongestSubstring(self, s):
+    def mostGet(self, s):
         self
 
 
