@@ -5,21 +5,21 @@
 
 class Solution(object):
     def addSortArr(self, A, m, B, n):
-        p1, p2 = 0, 0
+        pa, pb = 0, 0
         addArr = []
-        while p1 < m or p2 < n:
-            if p1 == m:
-                cur = B[p2]
-                p2 += 1
-            elif p2 == n:
-                cur = A[p1]
-                p1 += 1
-            elif A[p1] <= B[p2]:
-                cur = A[p1]
-                p1 += 1
+        while pa < m or pb < n:
+            if pa == m:
+                cur = B[pb]
+                pb += 1
+            elif pb == n:
+                cur = A[pa]
+                pa += 1
+            elif A[pa] <= B[pb]:
+                cur = A[pa]
+                pa += 1
             else:
-                cur = B[p2]
-                p2 += 1
+                cur = B[pb]
+                pb += 1
             addArr.append(cur)
         return addArr
 
@@ -29,7 +29,7 @@ class Solution(object):
 
 if __name__ == '__main__':
     solution = Solution()
-    A = [1, 2, 4]
-    B = [0, 2, 100]
-    arr = solution.addSortArr(A, len(A), B, len(B))
+    A = [1, 2, 3, 0, 0, 0]
+    B = [2, 5, 6]
+    arr = solution.addSortArr(A, 3, B, 3)
     print([arr])

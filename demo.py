@@ -3,8 +3,8 @@
 
 
 class Solution(object):
-    def lengthOfLongestSubstring(self, s):
-        self
+    def lengthOfLongestSubstring(self):
+        print()
 
 
 if __name__ == '__main__':
