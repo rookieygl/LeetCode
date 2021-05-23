@@ -23,9 +23,6 @@ class Solution(object):
             addArr.append(cur)
         return addArr
 
-    def addArr(self, s):
-        self
-
 
 if __name__ == '__main__':
     solution = Solution()

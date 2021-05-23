@@ -5,9 +5,31 @@
 
 
 class Solution(object):
-    def callExit(self, s):
-        self
+    def callExit(self, n, exit):
+        exitArr = [i for i in range(1, n + 1)]
+        print(exitArr)
+        index, exitSum, exitCall = 0, 0, 0
+        while True:
+            # 循环
+            if index > n - 1:
+                index = 0
+            if exitArr[index] > 0:
+                exitCall += 1
+
+            if exitCall == exit and exitSum < n - 1:
+                exitArr[index] = 0
+                exitCall = 0
+                exitSum += 1
+            elif exitSum == n - 1:
+                print(exitSum)
+                print(exitCall)
+                print(index)
+                print(exitArr)
+                return exitArr[index]
+            index += 1
 
 
 if __name__ == '__main__':
     solution = Solution()
+    call_exit = solution.callExit(3, 3)
+    print(call_exit)
