@@ -23,6 +23,13 @@ class Solution(object):
             addArr.append(cur)
         return addArr
 
+    def findNumberInString(self, s):
+        num = ""
+        for sub in s:
+            if sub.isdigit():
+                num += sub
+        return int(num)
+
 
 if __name__ == '__main__':
     solution = Solution()
@@ -30,3 +37,6 @@ if __name__ == '__main__':
     B = [2, 5, 6]
     arr = solution.addSortArr(A, 3, B, 3)
     print([arr])
+
+    arr = solution.findNumberInString("1234")
+    print(arr)
