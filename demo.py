@@ -3,7 +3,7 @@
 
 
 class Solution(object):
-    def lengthOfLongestSubstring(self):
+    def fun(self):
         print()
 
 
