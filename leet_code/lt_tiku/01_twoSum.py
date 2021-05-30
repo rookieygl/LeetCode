@@ -14,13 +14,13 @@ class Solution(object):
             # 当差值存在map时，返回坐标即可
             if target - num in hashtable:
                 return [hashtable[target - num], i]
-            hashtable[nums[i]] = i
+            hashtable[num] = i
         # 答案不存在的情况
         return []
 
 
 if __name__ == '__main__':
     solution = Solution()
-    nums = [3, 3]
+    nums = [3, 2, 4]
     solution_two_sum = solution.twoSum(nums, 6)
     print(solution_two_sum)
