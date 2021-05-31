@@ -41,8 +41,8 @@ class Solution(object):
             head.next = tmp
         return cur
 
-    # 同步双指针
-    def reverseListRecursion(self, head, a):
+    # 递归
+    def reverseListRecursion(self, head):
         """
         递归翻转
         取到最后一个元素，
@@ -50,7 +50,7 @@ class Solution(object):
         """
         if head is None or head.next is None:
             return head
-        rec = self.reverseListRecursion(head.next, a)
+        rec = self.reverseListRecursion(head.next)
         head.next.next = head
         head.next = None
         return rec
@@ -63,7 +63,7 @@ if __name__ == '__main__':
     node = ListNode(1, node1)
     solution = Solution()
     # reverse_head = solution.reverseListDoublePoint(node)
-    reverse_head = solution.reverseListRecursion(node, 0)
+    reverse_head = solution.reverseListRecursion(node)
 
     while reverse_head is not None:
         print(reverse_head.val)
