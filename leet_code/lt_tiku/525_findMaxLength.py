@@ -11,7 +11,7 @@
 
 class Solution(object):
     # 击败97%
-    def findMaxLength(self, nums):
+    def findMaxLength_me(self, nums):
         maxLength, count = 0, 0
         countMap = {0: -1}
         for index, num in enumerate(nums):
@@ -25,5 +25,5 @@ class Solution(object):
 
 if __name__ == '__main__':
     solution = Solution()
-    fun = solution.findMaxLength([0, 1, 0, 1])
+    fun = solution.findMaxLength_me([0, 1, 0, 1])
     print(fun)

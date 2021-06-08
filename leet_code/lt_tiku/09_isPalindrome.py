@@ -7,7 +7,7 @@
 
 class Solution(object):
     # 本人的 觉得好垃圾啊
-    def isPalindromeMe(self, x):
+    def isPalindrome_me(self, x):
         if x < 0 or (x % 10 == 0 and x != 0):
             return False
         if x < 10:

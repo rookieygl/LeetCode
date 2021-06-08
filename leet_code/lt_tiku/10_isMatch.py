@@ -10,6 +10,7 @@
 
 
 class Solution(object):
+    # 动态规划
     def isMatch(self, s, p):
         m, n = len(s), len(p)
 
