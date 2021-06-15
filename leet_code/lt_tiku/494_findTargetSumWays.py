@@ -39,10 +39,21 @@ class Solution(object):
 
         return dfs(nums, target, 0, 0)
 
+    # 动态求组合
     def findTargetSumWays_dp(self, nums, target):
-        sum_n = sum(nums[i] for i in nums)
-
-        return sum_n
+        sum_n, length = sum(nums), len(nums)  # 求和，数组长度
+        if target > sum_n or (sum_n - target) % 2 != 0:  # 边界条件
+            return 0
+        mid = (sum_n - target) // 2
+        dp = [[0 for _ in range(mid + 1)] for _ in range(length + 1)]
+        dp[0][0] = 1
+        for i in range(1, length + 1):
+            x = nums[i - 1]
+            for j in range(0, mid + 1):
+                dp[i][j] += dp[i - 1][j]
+                if j >= x:  # 满足条件
+                    dp[i][j] += dp[i - 1][j - x]
+        return dp[length][mid]
 
 
 if __name__ == '__main__':
