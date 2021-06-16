@@ -46,4 +46,6 @@ if __name__ == '__main__':
     headB = ListNode(5, headC)
     solution = Solution()
     fun = solution.getIntersectionNode_doblePoint(headA, headB)
-    print(fun.val)
+    while fun:
+        fun = fun.next
+        print(fun.val)
