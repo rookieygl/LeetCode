@@ -21,10 +21,6 @@ class Solution(object):
                 exitCall = 0
                 exitSum += 1
             elif exitSum == n - 1:
-                print(exitSum)
-                print(exitCall)
-                print(index)
-                print(exitArr)
                 return exitArr[index]
             index += 1
 
