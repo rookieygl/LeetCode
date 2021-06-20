@@ -18,7 +18,7 @@ class Solution(object):
         head指向head的下一个node 完成翻转
         """
         cur = None
-        while head is not None:
+        while head:
             tmp = head.next  # 取出下一个node的剩余链表
             head.next = cur  # cur 挂到head的下一个
             cur = head  # 交换head和next
@@ -34,7 +34,7 @@ class Solution(object):
         if head is None:
             return
         cur = head
-        while head.next is not None:
+        while head.next:
             tmp = head.next.next
             head.next.next = cur
             cur = head.next
@@ -63,7 +63,7 @@ if __name__ == '__main__':
     node = ListNode(1, node1)
     solution = Solution()
     # reverse_head = solution.reverseListDoublePoint(node)
-    reverse_head = solution.reverseListRecursion(node)
+    reverse_head = solution.reverseListSycDouble(node)
 
     while reverse_head is not None:
         print(reverse_head.val)
