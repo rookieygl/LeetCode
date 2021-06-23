@@ -29,12 +29,8 @@ class Solution(object):
         Big = 2 ** 30
         return n > 0 and Big % n == 0
 
-    def bindigits(self, n, bits):
-        s = bin(n & int("1" * bits, 2))[2:]
-        return ("{0:0>%s}" % (bits)).format(s)
-
 
 if __name__ == '__main__':
     solution = Solution()
-    fun = solution.bindigits(-16, 8)
+    fun = solution.isPowerOfTwo_model(-16, 8)
     print(fun)
