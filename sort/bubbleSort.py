@@ -7,8 +7,8 @@
 class Solution(object):
     def bubbleSort(self, num):
         length = len(num)
-        for i in range(length - 1):
-            for j in range(i - 1, length - 1):
+        for i in range(length):
+            for j in range(length - i - 1):
                 if num[j] > num[j + 1]:
                     num[j], num[j + 1] = num[j + 1], num[j]
         return num
