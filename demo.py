@@ -4,7 +4,7 @@
 
 class Solution(object):
     def fun(self):
-        return True
+        return 0
 
 
 if __name__ == '__main__':
