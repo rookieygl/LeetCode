@@ -1,25 +1,26 @@
 """
-找出数组最小值
+找出旋转数组最小值
+数组为升序，旋转一次
 """
 
 
 class Solution(object):
-    def findMin_loop(self, n):
-        ans = n[0]
-        for num in range(1, len(n)):
-            ans = min(ans, n[num])
+    def findMin_loop(self, nums):
+        ans = numbers[0]
+        for num in range(1, len(numbers)):
+            ans = min(ans, numbers[num])
         return ans
 
-    def findMin_binarySearch(self, n):
-        s, e = 0, len(n) - 1
-
-        while s < e:
-            mid = (s + e) // 2
-            if n[mid] > n[s]:
-                s = mid + 1
+    #  二分查找
+    def findMin_binarySearch(self, nums):
+        left, right = 0, len(nums) - 1
+        while left < right:
+            mid = (left + right) // 2
+            if nums[mid] < nums[right]:
+                right = mid
             else:
-                e = mid
-        return n[s] if n[s] < n[e] else n[e]
+                left = mid + 1
+        return nums[left]
 
 
 if __name__ == '__main__':
