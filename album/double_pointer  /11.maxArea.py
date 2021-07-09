@@ -10,17 +10,14 @@
 class Solution(object):
     # 官方 未创建左右指针值的对象，多取了一次
     def maxArea(self, height):
-        leftPo, rightPo = 0, len(height) - 1
-        leftVo, rightVo = height[leftPo], height[rightPo]
         maxArea = 0
-        while leftPo <= rightPo - 1:
-            maxArea = max(min(leftVo, rightVo) * (rightPo - leftPo), maxArea)
-            if leftVo > rightVo:
-                rightPo -= 1
-                rightVo = height[rightPo]
+        left, right = 0, len(height) - 1
+        while left < right:
+            maxArea = max(min(height[left], height[right]) * (right - left), maxArea)
+            if height[left] < height[right]:
+                left += 1
             else:
-                leftPo += 1
-                leftVo = height[leftPo]
+                right -= 1
         return maxArea
 
 
