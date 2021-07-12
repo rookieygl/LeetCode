@@ -1,29 +1,26 @@
 """
-寻找第K大
+215. 数组中的第K个最大元素
 
-有一个整数数组，请你根据快速排序的思路，找出数组中第K大的数。
+给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
 
-给定一个整数数组a,同时给定它的大小n和要找的K(1<=K<=n)，请返回第K大的数(包括重复的元素，不用去重)，保证答案存在。
+请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
 """
 
 
-# 快排思想
-# 时间复杂度相比堆排序慢
-
-class Solution:
-    def findKth(self, a, n, k):
+class Solution(object):
+    def findKthLargest(self, nums, k):
         # 第k个最大的元素，即升序排列后，index为len(nums)-k
-        k = n - k
+        k = len(nums) - k
         low = 0
-        high = n - 1
+        high = len(nums) - 1
         while low <= high:
-            p = self.patition(a, low, high)
+            p = self.patition(nums, low, high)
             if k < p:
                 high = p - 1
             elif k > p:
                 low = p + 1
             else:
-                return a[p]
+                return nums[p]
         return -1
 
     def patition(self, alist, low, high):
@@ -42,5 +39,5 @@ class Solution:
 
 if __name__ == '__main__':
     solution = Solution()
-    fun = solution.findKth([1, 3, 5, 2, 2], 5, 3)
+    fun = solution.findKthLargest([3, 2, 1, 5, 6, 4], 5)
     print(fun)
