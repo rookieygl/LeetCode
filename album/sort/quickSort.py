@@ -7,28 +7,31 @@
 class Solution(object):
     def sortArray(self, nums):
         self.quicksort(nums, 0, len(nums) - 1)
+        return nums
 
     def quicksort(self, nums, start, end):
         if start >= end:
             return
 
-        pivot = nums[(start + end) // 2]
-        left, right = start - 1, end + 1
-        while left < right and nums[right] >= pivot:
-            right -= 1
+        pivot = nums[start]
+        left, right = start, end
+        while left < right:
+            while left < right and nums[right] >= pivot:
+                right -= 1
 
-        while left < right and nums[left] < right:
-            left += 1
-
-        if left < right:
             nums[left] = nums[right]
 
-        self.quicksort(nums, left, right)
-        self.quicksort(nums, right + 1, end)
+            while left < right and nums[left] < pivot:
+                left += 1
+            nums[right] = nums[left]
+
+        nums[left] = pivot
+        self.quicksort(nums, start, left - 1)
+        self.quicksort(nums, left + 1, end)
 
 
 if __name__ == '__main__':
     solution = Solution()
-    arr = [6, 9, 3, 7, 15]
+    arr = [5, 2, 3, 1]
     solution.sortArray(arr)
     print(arr)

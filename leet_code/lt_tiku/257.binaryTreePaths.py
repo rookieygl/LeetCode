@@ -20,6 +20,7 @@ class Solution(object):
                 s += str(node.val)
                 if not node.left and not node.right:
                     paths.append(s)
+                s += "->"
                 dfs(node.left, s)
                 dfs(node.right, s)
 

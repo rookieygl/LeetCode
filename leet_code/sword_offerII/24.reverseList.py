@@ -48,7 +48,7 @@ class Solution(object):
         取到最后一个元素，
         递归从最后一个元素开始指向上一个元素
         """
-        if head is None or head.next is None:
+        if not head or not head.next:
             return head
         rec = self.reverseListRecursion(head.next)
         head.next.next = head
@@ -63,8 +63,8 @@ if __name__ == '__main__':
     node = ListNode(1, node1)
     solution = Solution()
     # reverse_head = solution.reverseListDoublePoint(node)
-    reverse_head = solution.reverseListRecursion(node)
+    fun = solution.reverseListRecursion(node)
 
-    while reverse_head is not None:
-        print(reverse_head.val)
-        reverse_head = reverse_head.next
+    while fun is not None:
+        print(fun.val)
+        fun = fun.next
