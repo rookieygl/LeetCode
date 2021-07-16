@@ -38,7 +38,7 @@ class Solution(object):
                 num = nums[-1]
         return num if tmp > maxL else -1
 
-    # vote 投票 主要元素必然剩下
+    # 摩尔投票 vote 投票 主要元素必然剩下
     def majorityElement_vote(self, nums):
         vote, count = 0, 0
         for num in nums:
