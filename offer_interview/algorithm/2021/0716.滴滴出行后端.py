@@ -1,8 +1,6 @@
 """
-ListNode
-    init
-    self.val=val
-    self.next=next
+1、写个单例
+2、合并有序链表
 """
 
 
