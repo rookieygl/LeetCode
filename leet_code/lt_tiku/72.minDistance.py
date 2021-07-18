@@ -44,5 +44,5 @@ class Solution(object):
 
 if __name__ == '__main__':
     solution = Solution()
-    fun = solution.minDistance("奥迪", "迪奥")
+    fun = solution.minDistance("迪", "迪奥")
     print(fun)

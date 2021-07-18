@@ -1,5 +1,5 @@
 """
-你能在你最喜欢的那天吃到你最喜欢的糖果吗？
+1744. 你能在你最喜欢的那天吃到你最喜欢的糖果吗？
 
 给你一个下标从 0 开始的正整数数组 candiesCount ，其中 candiesCount[i] 表示你拥有的第 i 类糖果的数目。
 同时给你一个二维数组 queries ，其中 queries[i] = [favoriteTypei, favoriteDayi, dailyCapi] 。

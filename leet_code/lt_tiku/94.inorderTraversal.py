@@ -1,7 +1,7 @@
 """
-144. 二叉树的前序遍历
-给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
+给定一个二叉树的根节点 root ，返回它的 中序 遍历。
 """
+
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -11,12 +11,12 @@ class TreeNode:
 
 
 class Solution(object):
-    def preorderTraversal(self, root):
+    def inorderTraversal(self, root):
         def dfs(node):
             if not node:
                 return
-            ans.append(node.val)
             dfs(node.left)
+            ans.append(node.val)
             dfs(node.right)
 
         ans = []
@@ -25,10 +25,9 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    node2 = TreeNode(2)
-    node3 = TreeNode(3)
-    root = TreeNode(1, node2, node3)
-
     solution = Solution()
-    fun = solution.preorderTraversal(root)
+    node3 = TreeNode(3)
+    node2 = TreeNode(2)
+    root = TreeNode(1, node2, node3)
+    fun = solution.inorderTraversal(root)
     print(fun)

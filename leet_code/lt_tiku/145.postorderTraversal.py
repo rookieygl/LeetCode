@@ -1,7 +1,8 @@
 """
-144. 二叉树的前序遍历
-给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
+145. 二叉树的后序遍历
+给定一个二叉树，返回它的 后序 遍历。
 """
+
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -15,9 +16,9 @@ class Solution(object):
         def dfs(node):
             if not node:
                 return
-            ans.append(node.val)
             dfs(node.left)
             dfs(node.right)
+            ans.append(node.val)
 
         ans = []
         dfs(root)
