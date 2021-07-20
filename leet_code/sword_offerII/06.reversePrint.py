@@ -1,4 +1,5 @@
 """
+剑指 Offer 06. 从尾到头打印链表
 """
 
 
@@ -16,7 +17,7 @@ class Solution(object):
             head = head.next
         newVal = []
         while valL:
-            newVal.append(valL.pop())  # 默认和-1一样，最后一个元素
+            newVal.append(valL.pop())  # pop默认索引位置-1，最后一个元素
         return newVal
 
 
