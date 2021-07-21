@@ -8,7 +8,7 @@ import math
 
 
 class Solution(object):
-    def fun(self):
+    def combination(self):
         pow_map = collections.defaultdict(list)
         pow_repeat = collections.defaultdict(str)
         for a in range(1, 10):
@@ -40,9 +40,9 @@ class Solution(object):
             else:
                 result_list = dfs(value_list, result_list)
             print(result_list)
-        return 0
+        return
 
 
 if __name__ == '__main__':
     solution = Solution()
-    fun = solution.fun()
+    solution.fun()
