@@ -20,8 +20,8 @@ class Solution(object):
                 return  # 递归终止
             node = TreeNode(preorder[root])  # 建立根节点
             i = dic[preorder[root]]  # 划分根节点、左子树、右子树
-            node.left = recur(root + 1, left, i - 1)  # 开启左子树递归
-            node.right = recur(i - left + root + 1, i + 1, right)  # 开启右子树递归
+            node.left = recur(root + 1, left, i - 1)  # 左子树递归
+            node.right = recur(i - left + root + 1, i + 1, right)  # 右子树递归
             return node  # 回溯返回根节点
 
         dic, preorder = {}, preorder
@@ -32,7 +32,11 @@ class Solution(object):
 if __name__ == '__main__':
     solution = Solution()
     fun = solution.buildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7])
-
+    """
+            3
+        9       20
+            15      7
+    """
 
     def inorder(root, ans):
         if not root:

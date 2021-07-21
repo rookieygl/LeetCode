@@ -10,7 +10,6 @@ class Solution(object):
         tep = "%20"
         ns = [] * (3 * len(s))
         for c in s:
-
             if c.isspace():
                 ns.append(tep)
             else:
@@ -24,5 +23,5 @@ class Solution(object):
 
 if __name__ == '__main__':
     solution = Solution()
-    fun = solution.replaceSpace_fun("We are happy.")
+    fun = solution.replaceSpace_for("We are happy.")
     print(fun)

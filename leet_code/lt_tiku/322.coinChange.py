@@ -7,13 +7,14 @@
 
 
 class Solution(object):
+    #   先填充最小的硬币，依次填入较大硬币，就能减少硬币的个数
     def coinChange(self, amount, coins):
         dp = [float('inf')] * (amount + 1)
         dp[0] = 0
 
         for coin in coins:
             for x in range(coin, amount + 1):
-                dp[x] = min(dp[x], dp[x - coin] + 1)
+                dp[x] = min(dp[x], dp[x - coin] + 1)  # 加入一个硬币记一次数，再取最小值
         return dp[amount] if dp[amount] != float('inf') else -1
 
 
