@@ -25,6 +25,7 @@ class Solution(object):
             return True
         return False
 
+    # 只需要判断一半即可
     def isPalindrome(self, x):
         if x < 0 or (x % 10 == 0 and x != 0):
             return False
@@ -32,8 +33,9 @@ class Solution(object):
             return True
         revertedNumber = 0
         while x > revertedNumber:
-            revertedNumber = revertedNumber * 10 + x % 10
-            x /= 10
+            revertedNumber = revertedNumber * 10 + x % 10  # 循环加上x尾数
+            x /= 10  # x 移除尾数
+        # 偶数回文相等，奇数回文xrevertedNumber比少一位
         return x == revertedNumber or x == revertedNumber / 10
 
 
