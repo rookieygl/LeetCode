@@ -13,8 +13,8 @@ class Solution(object):
         dp = [0] * (amount + 1)
         dp[0] = 1
         for coin in coins:
-            for i in range(coin, amount + 1):
-                dp[i] += dp[i - coin]
+            for i in range(coin, amount + 1):  # 能满足amount就是一种组合，所以组合需要累加
+                dp[i] = dp[i] + dp[i - coin]  # 组合累加
         return dp[amount]
 
 
