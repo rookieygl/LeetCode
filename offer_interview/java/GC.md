@@ -3,12 +3,12 @@ Hotspot（oracle官方虚拟机）
 # 垃圾回收器
 除了G1和ZGC，旧版的GC回收器都需要组合使用
 1. Serial/Serial Old：单线程垃圾回收器。会Stop World
-2. Parallel Scavenge/Parallel Old:并行垃圾回收器。Stop World时间比单线程较短。
-3. ParNew/CMS:cms垃圾回收器，并行标记，Stop World清除垃圾。比Parallel 暂停较短。
+2. Parallel Scavenge/Parallel Old:并行垃圾回收器。Stop World时间比单线程较短
+3. ParNew/CMS:cms垃圾回收器，并行标记，Stop World清除垃圾。比Parallel 暂停较短
 
 **以上的jdk1.7之前的垃圾回收器，都需要配置JVM，针对新生代和老年代组合使用 JDK 7u4推出G1，Java 11推出ZGC**
-4. G1（Garbage First）：逻辑分区，物理不分区，追求停顿时间。
-5. ZGC：逻辑不分区，物理不分区。
+4. G1（Garbage First）：逻辑分区，物理不分区，追求停顿时间
+5. ZGC：逻辑不分区，物理不分区
 
 # 标记垃圾
 ## 引用计数法
@@ -36,6 +36,7 @@ Hotspot（oracle官方虚拟机）
 4. 重复步骤三
 5. 仍在白色集合的对象即为GC Roots不可达，可以进行回收
 第四部的重复可以解释G1的暂停时间MaxGCPauseMillis并不准确
+
 ### 多标（重标）-浮动垃圾
 对性能和正确性影响不大，第二次GC会回收
 1. 链路断裂
@@ -155,18 +156,13 @@ G1 停顿三次 停顿很短
   Region大小一致，数值是在 1M 到 32M 字节之间的一个2的幂值数，JVM会尽量划分2048个左右、同等大小的 region。
   当然这个数字既可以手动调整，G1 也会根据堆大小自动进行调整。
 2. 收集集合（CSet）
-  一组可被回收的分区的集合。在CSet中存活的数据会在GC过程中被移动到另一个可用分区，CSet中的分区可以来自Eden空间、survivor空间、或者老年代。
+  一组可被回收的分区的集合。在CSet中存活的数据会在GC过程中被移动到另一个可用分区，
+  CSet中的分区可以来自Eden空间、survivor空间、或者老年代。
   CSet会占用不到整个堆空间的1%大小。
 3. 已记忆集合（RSet）
   RSet记录了其他Region中的对象引用本Region中对象的关系，属于points-into结构（谁引用了我的对象）。
-  RSet的价值在于使得垃圾收集器不需要扫描整个堆找到谁引用了当前分区中的对象，只需要扫描RSet即可。
-4. Snapshot-At-The-Beginning(SATB) 原始快照
-
-## 执行步骤
-1.  Concurrent Global Marking： 并发扫描一遍之后，G1知道了哪些Region里大部分是空的（即大部分是可回收的对象），
-    G1把收集和压缩操作集中于此，放进CSet，因此得名Garbage First
-2. Evacuation. 并发地将一个或多个Region的资源拷贝至新的Region，压缩内存、拷贝、释放已拷贝完成的Region。与此相比，
-    CMS没有压缩内存（去除碎片）这一步，ParallelOld垃圾收集只进行全堆压缩.
+  RSet的价值在于使得垃圾收集器不需要扫描整个堆找到谁引用了当前分区中的对象，只需要扫描RSet即可
+    
 
 ## 优点
 1. Eden、Survivor、Old区不再固定，在内存使用效率上来说更灵活，减少磁盘碎片。
@@ -177,7 +173,8 @@ G1 停顿三次 停顿很短
 5. G1是棋盘格局，**标记-整理**方式清除垃圾，压缩空间方面有优势。
 
 ## 缺点
-1. Region棋盘格局导致大小对象占用的格子是一样的，导致空间分配不均匀，并且，region 太小不合适，会令你在分配大对象时更难找到连续空间。
+1. Region棋盘格局导致大小对象占用的格子是一样的，导致空间分配不均匀，并且，region 太小不合适，
+会令你在分配大对象时更难找到连续空间。
 
 ## G1 Mixed GC
 混合回收就是把老年代的一些区域加在将要回收的Eden和Servivor的后面，
@@ -237,4 +234,4 @@ CMS(Concurrent Mark-Sweep)(并发 标记-清除)是以牺牲吞吐量为代价�
 | -XX:+CMSParallelRemarkEnabled         |              |      |
 
 ## ZGC
-以上垃圾回收期都是HotSpot（oracle jvm官方团队的产品），ZGC是JDK11推出的产品，支持海量吞吐（最大4T），不在学习范围内。
+以上垃圾回收期都是HotSpot（oracle jvm官方团队的产品），ZGC是JDK11推出的产品，支持海量吞吐（最大4T），不在学习范围内
