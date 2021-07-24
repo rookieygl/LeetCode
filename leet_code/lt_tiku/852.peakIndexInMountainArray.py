@@ -1,5 +1,5 @@
 """
-山脉数组的峰顶索引
+852.山脉数组的峰顶索引
 
 符合下列属性的数组 arr 称为 山脉数组 ：
 arr.length >= 3
@@ -30,7 +30,7 @@ mid就是解
 
 
 class Solution(object):
-    # 官方的二分，也可以用枚举。
+    # 官方的二分
     def peakIndexInMountainArray_double(self, arr):
         start, end = 0, len(arr) - 2  # 最后一位必然不是山脉数
         while start < end:
