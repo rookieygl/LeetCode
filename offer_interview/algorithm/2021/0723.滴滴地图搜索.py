@@ -24,20 +24,19 @@ class Solution(object):
                 right = mid - 1  # 整除会有损失，需要补偿
         return -1
 
-    class Solution(object):
-        def inorderTraversal(self, root):
-            if not root:
-                return []
-            res = []
-            queue = [root]
-            while queue:
-                r = queue.pop(0)
-                res.append(r.val)
-                if r.left:
-                    queue.append(r.left)
-                if r.right:
-                    queue.append(r.right)
-            return res
+    def inorderTraversal(self, root):
+        if not root:
+            return []
+        res = []
+        queue = [root]
+        while queue:
+            r = queue.pop(0)
+            res.append(r.val)
+            if r.left:
+                queue.append(r.left)
+            if r.right:
+                queue.append(r.right)
+        return res
 
 
 if __name__ == '__main__':
