@@ -1,7 +1,5 @@
 """
-257. 二叉树的所有路径
-给定一个二叉树，返回所有从根节点到叶子节点的路径。
-
+给定一个二叉树，返回所有从根节点到叶子节点的路径。字符串形式记录路径
 说明: 叶子节点是指没有子节点的节点。
 """
 
@@ -30,7 +28,6 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    # 树
     node2 = TreeNode(2)
     node3 = TreeNode(3)
     root = TreeNode(1, node2, node3)

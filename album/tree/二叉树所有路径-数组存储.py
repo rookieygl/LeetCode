@@ -1,6 +1,6 @@
 """
-1、二叉树路径数字和
-一条路径组成一个数字
+给定一个二叉树，返回所有从根节点到叶子节点的路径。数组形式记录路径
+说明: 叶子节点是指没有子节点的节点。
 """
 
 
@@ -13,20 +13,18 @@ class TreeNode:
 
 class Solution(object):
     def binaryTreePaths(self, root):
-        ans = 0
+        ans, path = [], []
 
-        def dfs(node, s):
+        def dfs(node, path):
             if node:
-                s += str(node.val)
+                path.append(node.val)
                 if not node.left and not node.right:
-                    paths.append(s)
-                dfs(node.left, s)
-                dfs(node.right, s)
+                    ans.append(path[:])
+                dfs(node.left, path)
+                dfs(node.right, path)
+                path.pop()
 
-        paths = []
-        dfs(root, "")
-        for path in paths:
-            ans += int(path)
+        dfs(root, path)
         return ans
 
 

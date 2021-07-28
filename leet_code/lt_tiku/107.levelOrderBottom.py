@@ -29,7 +29,7 @@ class Solution(object):
                 if r.right:
                     queue.append(r.right)
             ans.append(tmp)
-        return ans
+        return ans[::-1]
 
     # 层次递归
     def inorderTraversal_recursion(self, root):
@@ -47,7 +47,7 @@ class Solution(object):
                 dfs(index + 1, node.right)
 
         dfs(1, root)
-        return ans
+        return ans[::-1]
 
 
 if __name__ == '__main__':
@@ -57,5 +57,5 @@ if __name__ == '__main__':
     node3 = TreeNode(3, node4, node5)
     node2 = TreeNode(2)
     root = TreeNode(1, node2, node3)
-    fun = solution.inorderTraversal_recursion(root)
+    fun = solution.levelOrderBottom(root)
     print(fun)
