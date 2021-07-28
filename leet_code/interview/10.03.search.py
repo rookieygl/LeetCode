@@ -35,5 +35,5 @@ class Solution(object):
 
 if __name__ == '__main__':
     solution = Solution()
-    arr = solution.search([7, 8, 9, 1, 2], 9)
-    print([arr])
+    fun = solution.search([7, 8, 9, 1, 2], 9)
+    print(fun)
