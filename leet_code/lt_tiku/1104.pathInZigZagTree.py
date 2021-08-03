@@ -32,8 +32,9 @@ class Solution(object):
                 path.append(label)
             row -= 1
             label >>= 1
-        # reversed(path) 翻转后是一个迭代集合，需要转成list
-        return list(reversed(path))
+        # list(reversed(path)) reversed(path) 翻转后是一个迭代集合，需要转成list
+        # 推荐数组的逆序输出
+        return path[::-1]
 
 
 if __name__ == '__main__':

@@ -12,34 +12,18 @@ class ListNode(object):
 
 class Solution(object):
     # 异步指针翻转
-    def reverseListDoublePoint(self, head):
+    def reverseList_loop(self, head):
         """
         初始化一个指针为None，作为链表起点
         每次循环取出head放到新的指针头，
         head指向head的下一个node 完成翻转
         """
         cur = None
-        while head is not None:
+        while head:
             tmp = head.next  # 取出下一个node的剩余链表
             head.next = cur  # cur 挂到head的下一个
             cur = head  # 交换head和next
             head = tmp  # 遍历剩余链表
-        return cur
-
-    # 同起点指针翻转
-    def reverseListSycDouble(self, head):
-        """
-        每次循环取出head放到新的指针头（指针初始化为None），
-        head指向head的下一个node 完成翻转
-        """
-        if head is None:
-            return
-        cur = head
-        while head.next is not None:
-            tmp = head.next.next
-            head.next.next = cur
-            cur = head.next
-            head.next = tmp
         return cur
 
     # 递归

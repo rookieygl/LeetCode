@@ -14,14 +14,15 @@
 
 class Solution(object):
     def titleToNumber(self, columnTitle):
-        number, multiple = 0, 1
+        ans, multiple = 0, 1
         for i in range(len(columnTitle) - 1, -1, -1):
-            number += (ord(columnTitle[i]) - ord("A") + 1) * multiple
+            tmp = ord(columnTitle[i]) - ord('A') + 1
+            ans += tmp * multiple
             multiple *= 26
-        return number
+        return ans
 
 
 if __name__ == '__main__':
     solution = Solution()
-    fun = solution.titleToNumber("A")
+    fun = solution.titleToNumber("AA")
     print(fun)
