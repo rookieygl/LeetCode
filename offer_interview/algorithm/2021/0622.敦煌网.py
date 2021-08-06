@@ -6,9 +6,9 @@
 
 class Solution(object):
     def findMin_loop(self, nums):
-        ans = numbers[0]
-        for num in range(1, len(numbers)):
-            ans = min(ans, numbers[num])
+        ans = nums[0]
+        for num in range(1, len(nums)):
+            ans = min(ans, nums[num])
         return ans
 
     #  二分查找
